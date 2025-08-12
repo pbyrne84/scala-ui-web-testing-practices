@@ -1,0 +1,113 @@
+@(maybeCurrentSearchText: Option[String])
+<html>
+    <head>
+
+    </head>
+    <style>
+            html {
+                font-family: Verdana, Arial, serif;
+                font-size: 11px;
+                width: 1000px;
+                color: #666666;
+            }
+
+            form {
+                padding: 0;
+                margin: 0;
+            }
+
+            #HeaderContainer {
+                float: left;
+                clear: both;
+                border: 1px solid #666666;
+                width: 100%;
+            }
+
+            #HeaderContainer label {
+                font-size: 15px;
+                font-weight: bold;
+                text-transform: uppercase;
+
+            }
+
+            #HeaderTitleContainer {
+                font-size: 22px;
+                float: left;
+                color: #666666;
+                padding: 5px 4px;
+            }
+
+            #HeaderSearchInputContainer {
+                float: right;
+                padding: 10px 4px;
+            }
+
+            .searchResult {
+                float: left;
+                clear: both;
+                border: 1px solid #666666;
+                width: 100%;
+            }
+
+            .searchResultTitle {
+                float: left;
+                padding: 4px;
+                width: 100px;
+            }
+
+            .searchResultDescription {
+                float: left;
+                padding: 4px;
+                width: 800px;
+            }
+
+            .searchResultPrice {
+                float: left;
+                padding: 4px;
+            }
+
+            #Title {
+                float: left;
+                font-weight: bold;
+                font-size: 14px;
+                padding: 20px 0px 10px 0px;
+                width:70%;
+            }
+
+            #Price {
+                float: right;
+                font-weight: bold;
+                font-size: 14px;
+                padding: 20px 0px 10px 0px;
+                width:20%;
+                text-align: right;
+            }
+
+            #Description {
+                clear: both;
+                float: left;
+                font-size: 11px;
+                padding: 20px 0px 10px 0px
+            }
+
+
+
+    </style>
+
+    <body>
+
+        <div id="HeaderContainer">
+            <div id="HeaderTitleContainer">
+                SuperBay
+            </div>
+
+            <div id="HeaderSearchInputContainer">
+                <form method="GET" action="/search">
+                    <label for="searchText">Search</label>
+                    <input type="text" name="searchText" id="searchText" value="@maybeCurrentSearchText.getOrElse("")"/>
+                    <input type="submit" id="submitSearch"/>
+                </form>
+            </div>
+
+        </div>
+

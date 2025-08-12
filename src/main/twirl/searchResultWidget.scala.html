@@ -1,0 +1,19 @@
+@import pbyrne84.browsertesting.models.SearchResult
+
+@(searchResult: SearchResult, index: Int)
+
+<div class="searchResult" >
+    <div class="searchResultTitle">
+        <a href="/result/@searchResult.id">
+            @searchResult.title
+        </a>
+    </div>
+
+    <div class="searchResultDescription">
+    @searchResult.briefDescription
+    </div>
+
+    <div class="searchResultPrice">
+    @searchResult.price
+    </div>
+</div>
