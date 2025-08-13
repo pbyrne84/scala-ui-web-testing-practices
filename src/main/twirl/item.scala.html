@@ -1,0 +1,14 @@
+@import pbyrne84.browsertesting.models.Item
+@(item: Item)
+
+@html.headerWidget(None)
+<br style="clear: both"/>
+
+<div id="Title">@item.title</div>
+<div id="Price">Price: @item.price</div>
+<br style="clear: both"/>
+<div id="Description"><pre>@item.description</pre></div>
+
+@html.footerWidget()
+
+
