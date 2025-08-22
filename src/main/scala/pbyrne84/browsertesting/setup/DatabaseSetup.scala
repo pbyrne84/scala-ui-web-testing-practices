@@ -13,7 +13,7 @@ import scala.jdk.CollectionConverters.ListHasAsScala
 
 class DatabaseSetup(dbConfig: DbConfig, db: PostgresProfile.backend.JdbcDatabaseDef)(implicit ec: ExecutionContext) {
 
-  import slick.jdbc.PostgresProfile.api._
+  import slick.jdbc.PostgresProfile.api.*
 
   implicit class FutureOps[A](futures: Seq[Future[A]]) {
     def asFutureSequence: Future[Seq[A]] = Future.sequence(futures)
@@ -24,7 +24,7 @@ class DatabaseSetup(dbConfig: DbConfig, db: PostgresProfile.backend.JdbcDatabase
     TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
 
     val migration = new DatabaseMigration(dbConfig)
-    val migrate = migration.migrate
+    val migrate   = migration.migrate
 
     migrate.migrations.asScala.foreach(a => println(a.filepath))
 
@@ -39,7 +39,7 @@ class DatabaseSetup(dbConfig: DbConfig, db: PostgresProfile.backend.JdbcDatabase
 
   def generateMany(userCount: Int, itemsPerUser: Int): Future[Seq[(User, Seq[Item])]] = {
     val userUuids = List.fill(userCount)(UUID.randomUUID())
-    userUuids.map(user.generate).asFutureSequence.flatMap { generatedUsers: Seq[User] =>
+    userUuids.map(user.generate).asFutureSequence.flatMap { (generatedUsers: Seq[User]) =>
       generatedUsers.map { user =>
         (1 to itemsPerUser)
           .map { index =>

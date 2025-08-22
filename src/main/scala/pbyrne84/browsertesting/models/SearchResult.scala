@@ -14,8 +14,11 @@ case class SearchResults(
 )
 
 object SearchResult {
-  def fromItem(item: Item): SearchResult =
-    SearchResult(item.id, item.title, item.briefDescription, item.price)
+  def fromItem(item: Item): SearchResult = {
+    val url = s"/item/${item.title.replace(" ", "-")}/${item.id}"
+
+    SearchResult(item.id, item.title, item.briefDescription, item.price, url)
+  }
 }
 
-case class SearchResult(id: UUID, title: String, briefDescription: String, price: Int)
+case class SearchResult(id: UUID, title: String, briefDescription: String, price: BigDecimal, url: String)

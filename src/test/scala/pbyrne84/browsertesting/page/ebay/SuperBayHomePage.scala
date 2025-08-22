@@ -1,34 +1,39 @@
 package pbyrne84.browsertesting.page.ebay
 
+import org.openqa.selenium.WebDriver
+import org.scalactic.source.Position
+import org.scalatest.matchers.should.Matchers
+import pbyrne84.browsertesting.models.SiteTitle
 import pbyrne84.browsertesting.page.ChromeDriverInstance
-import org.openqa.selenium.{By, WebDriver}
-import org.scalatest.matchers.must.Matchers
+import pbyrne84.browsertesting.routes.SiteUrls
 
 // I was doing this with amazon but they have capture all over the place
-object EbayHomePage {
+object SuperBayHomePage {
   private val driver = ChromeDriverInstance.driver
 
-  private val ebayHomePage = new EbayHomePage(driver)
+  private val ebayHomePage = new SuperBayHomePage(driver, PageObjectConfig.siteUrls)
 
   // When the jvm stops so will the driver
 
   // By not using static for everything we can create navigation chains so we can navigate a system easily from code
   // One we have page object we should rarely have to look at the html unless it changes/gets redesigned
-  def loadHomepage: EbayHomePage = {
+  def loadHomepage(implicit position: Position): SuperBayHomePage = {
     ebayHomePage.loadHomepage
   }
 
 }
 
-class EbayHomePage(protected val driver: WebDriver) extends Matchers with SearchWidgetEbayPage {
+class SuperBayHomePage(protected val driver: WebDriver, siteUrl: SiteUrls) extends Matchers with SearchWidgetEbayPage {
 
   // private def login(userName: String, password: String): AmazonHomePage = {}
+  println(siteUrl.fullPath.homePage)
 
-  def loadHomepage: EbayHomePage = {
-    driver.get("https://www.ebay.co.uk/")
+  def loadHomepage(implicit position: Position): SuperBayHomePage = {
+    driver.get(siteUrl.fullPath.homePage)
+
     // Check we loaded the page, there can be other ways, just a demo
     // We should care about the mechanism in the test as it scatters the responsibilities about
-    driver.findElement(By.id("gh-ug")).getText mustBe "Hello. Sign in or register"
+    driver.getTitle should endWith(SiteTitle.homePage)
     this
   }
 

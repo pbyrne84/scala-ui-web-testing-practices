@@ -1,12 +1,12 @@
 package pbyrne84.browsertesting.routes
 
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.actor.typed.scaladsl.Behaviors
+import org.apache.pekko.http.scaladsl.Http
 import pbyrne84.browsertesting.controllers.SearchController
 import pbyrne84.browsertesting.repo.{ItemRepository, SearchDatabase}
 import pbyrne84.browsertesting.routes.SuperBayRoutes
 import pbyrne84.browsertesting.routes.SuperBayRoutes.system
-import org.apache.pekko.actor.typed.ActorSystem
-import org.apache.pekko.actor.typed.scaladsl.Behaviors
-import org.apache.pekko.http.scaladsl.Http
 
 import java.net.ServerSocket
 import java.time.Clock

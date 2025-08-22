@@ -1,15 +1,15 @@
 package pbyrne84.browsertesting.cucumber.stepdefs
 
 import pbyrne84.browsertesting.cucumber.BaseStepDef
-import pbyrne84.browsertesting.page._
-import pbyrne84.browsertesting.page.ebay.{EbayHomePage, EbayPage, EbaySearchResultsPage, NotLoadedEpagePage, SearchResult, SearchWidgetEbayPage}
+import pbyrne84.browsertesting.page.*
+import pbyrne84.browsertesting.page.ebay.*
 
 import scala.reflect.ClassTag
 import scala.util.{Failure, Success, Try}
 
 class EbayStepDefs extends BaseStepDef {
 
-  implicit class EbayPageOps(currentPage: EbayPage) {
+  implicit class EbayPageOps(currentPage: SuperBayPage) {
 
     // Just give a normal scalatest error format instead of a thrown exception format
     def asExpected[A: ClassTag]: A = {
@@ -23,17 +23,17 @@ class EbayStepDefs extends BaseStepDef {
   }
 
   // As each step is discombobulated we need to store state between them in mutable vars (ick!)
-  private var currentPage: EbayPage = NotLoadedEpagePage
+  private var currentPage: SuperBayPage = NotLoadedPage
 
   // Purposely not in order as trying to share steps leads not being able to read the step linearly.
   // There can be thousands of them making it very very hard to organise them in a way that does not cause a lot of cognitive load,
   // if you care about that sort ot thing.
   Then("""I should have some results""") { () =>
-    currentPage.asExpected[EbaySearchResultsPage].totalResults >= 0
+    currentPage.asExpected[SuperBaySearchResultsPage].totalResults >= 0
   }
 
   Given("""I load the homepage""") { () =>
-    currentPage = EbayHomePage.loadHomepage
+    currentPage = SuperBayHomePage.loadHomepage
   }
 
   When("""I search for {string}""") { (string: String) =>
@@ -41,11 +41,11 @@ class EbayStepDefs extends BaseStepDef {
   }
 
   Then("""I must be on the homepage""") { () =>
-    currentPage mustBe a[EbayHomePage]
+    currentPage mustBe a[SuperBayHomePage]
   }
 
   When("""I click on the first result""") { () =>
-    currentPage = currentPage.asExpected[EbaySearchResultsPage].clickResult(0)
+    currentPage = currentPage.asExpected[SuperBaySearchResultsPage].clickResult(0)
   }
   Then("""I should see the first result""") { () =>
     val searchResult = currentPage.asExpected[SearchResult]

@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:17
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql17/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust

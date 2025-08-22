@@ -12,7 +12,7 @@ class UserRepository(
     clock: Clock,
     uuidProvider: () => UUID = () => UUID.randomUUID()
 )(implicit ec: ExecutionContext) {
-  import slick.jdbc.PostgresProfile.api._
+  import slick.jdbc.PostgresProfile.api.*
 
   def create(newUser: NewUser): Future[Either[RuntimeException, User]] = {
     val now = Instant.now(clock)

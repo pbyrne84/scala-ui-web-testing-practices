@@ -1,0 +1,25 @@
+@(searchResult: pbyrne84.browsertesting.models.SearchResult)
+
+<article class="card">
+    <a class="thumb" href="@{searchResult.url}" aria-label="View item">
+            IMG 1
+    </a>
+    <div class="info">
+        <h2><a href="@{searchResult.url}" class="searchResultUrl">@{searchResult.title}</a></h2>
+        <div class="subtitle">@{searchResult.briefDescription}</div>
+        <div class="badges">
+            <span class="badge">Top Rated</span>
+            <span class="badge">Free Returns</span>
+            <span class="badge">More than 10 available</span>
+        </div>
+        <div class="seller">by AcmeStore • 98.7% positive</div>
+    </div>
+    <div class="pricebox">
+        <div class="price">$@{searchResult.price}</div>
+        <div class="shipping">Free shipping • Est. Thu, Aug 29</div>
+        <div class="cta-row">
+            <a class="btn" href="@{searchResult.url}">View</a>
+            <a class="btn primary" href="item.html">Buy It Now</a>
+        </div>
+    </div>
+</article>

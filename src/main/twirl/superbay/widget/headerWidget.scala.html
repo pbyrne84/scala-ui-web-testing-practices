@@ -1,0 +1,23 @@
+@(title: String, maybeSearchTerm: Option[String])
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>SuperBay – @title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/superbay.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="wrap">
+                <div class="brand">SuperBay</div>
+                <form class="search-bar" action="/search" method="GET">
+                    <input type="text" name="searchText" placeholder="Search for anything" value="@maybeSearchTerm"/>
+                    <button type="submit">Search</button>
+                </form>
+                <div class="header-actions">
+                 Help • Sign in • My eBay
+                </div>
+            </div>
+        </header>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SuperBay – Search Results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../src/main/resources/superbay.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand">SuperBay</div>
+      <form class="search-bar" action="/search" method="GET">
+        <input type="text" name="q" placeholder="Search for anything" />
+        <button type="submit">Search</button>
+      </form>
+      <div class="header-actions">
+        Help • Sign in • My eBay
+      </div>
+    </div>
+  </header>
+  <main class="content">
+    <aside class="filters">
+      <h3>Filters</h3>
+
+      <div class="filter-section">
+        <div class="filter-title">Condition</div>
+        <div class="chips">
+          <div class="chip active">All</div>
+          <div class="chip">New</div>
+          <div class="chip">Open box</div>
+          <div class="chip">Used</div>
+          <div class="chip">For parts</div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-title">Price</div>
+        <div style="display:flex; gap:8px;">
+          <input type="number" placeholder="Min" style="width:50%; padding:8px; border:1px solid var(--border); border-radius:6px;">
+          <input type="number" placeholder="Max" style="width:50%; padding:8px; border:1px solid var(--border); border-radius:6px;">
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-title">Delivery options</div>
+        <label style="display:flex; gap:8px; align-items:center; font-size:13px; color:var(--muted);">
+          <input type="checkbox"> Free shipping
+        </label>
+        <label style="display:flex; gap:8px; align-items:center; font-size:13px; color:var(--muted);">
+          <input type="checkbox"> Free returns
+        </label>
+        <label style="display:flex; gap:8px; align-items:center; font-size:13px; color:var(--muted);">
+          <input type="checkbox"> Local pickup
+        </label>
+      </div>
+    </aside>
+
+    <section>
+      <div class="results-topbar">
+        <div class="results-summary"><strong>1,248</strong> results for "<strong>laptop stand</strong>" • Showing 1–20</div>
+        <div class="sort">
+          <label for="sort">Sort:</label>
+          <select id="sort">
+            <option>Best Match</option>
+            <option>Price + Shipping: lowest first</option>
+            <option>Price + Shipping: highest first</option>
+            <option>Time: newly listed</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results">
+        <!-- Result card 1 -->
+        <article class="card">
+          <a class="thumb" href="item.html" aria-label="View item">
+            IMG 1
+          </a>
+          <div class="info">
+            <h2><a href="item.html">Adjustable Aluminum Laptop Stand, Foldable, Heat-Vent Design</a></h2>
+            <div class="subtitle">Lightweight, compatible with 10”–16” laptops, anti-slip pads</div>
+            <div class="badges">
+              <span class="badge">Top Rated</span>
+              <span class="badge">Free Returns</span>
+              <span class="badge">More than 10 available</span>
+            </div>
+            <div class="seller">by AcmeStore • 98.7% positive</div>
+          </div>
+          <div class="pricebox">
+            <div class="price">$24.99</div>
+            <div class="shipping">Free shipping • Est. Thu, Aug 29</div>
+            <div class="cta-row">
+              <a class="btn" href="item.html">View</a>
+              <a class="btn primary" href="item.html">Buy It Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Result card 2 -->
+        <article class="card">
+          <a class="thumb" href="item.html" aria-label="View item">IMG 2</a>
+          <div class="info">
+            <h2><a href="item.html">ErgoLift Portable Laptop Riser with Phone Holder</a></h2>
+            <div class="subtitle">Six angles, supports up to 10kg, silicone grips</div>
+            <div class="badges">
+              <span class="badge">Sponsored</span>
+              <span class="badge">Limited stock</span>
+            </div>
+            <div class="seller">by GadgetsPlus • 96.2% positive</div>
+          </div>
+          <div class="pricebox">
+            <div class="price">$19.45</div>
+            <div class="shipping">$3.95 shipping • Est. Fri, Aug 30</div>
+            <div class="cta-row">
+              <a class="btn" href="item.html">View</a>
+              <a class="btn primary" href="item.html">Buy It Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Result card 3 -->
+        <article class="card">
+          <a class="thumb" href="item.html" aria-label="View item">IMG 3</a>
+          <div class="info">
+            <h2><a href="item.html">Minimalist Steel Stand for MacBook & Ultrabooks</a></h2>
+            <div class="subtitle">Open-frame, soft touch feet, matte black</div>
+            <div class="badges">
+              <span class="badge">Free Returns</span>
+            </div>
+            <div class="seller">by NorthTech • 99.2% positive</div>
+          </div>
+          <div class="pricebox">
+            <div class="price">$32.00</div>
+            <div class="shipping">Free shipping • Est. Wed, Aug 28</div>
+            <div class="cta-row">
+              <a class="btn" href="item.html">View</a>
+              <a class="btn primary" href="item.html">Buy It Now</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <nav class="pagination" aria-label="Pagination">
+        <a class="page" href="#prev">Prev</a>
+        <a class="page active" href="#1">1</a>
+        <a class="page" href="#2">2</a>
+        <a class="page" href="#3">3</a>
+        <a class="page" href="#next">Next</a>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2025 SuperBay. Terms • Privacy • Cookies
+  </footer>
+</body>
+</html>
