@@ -1,20 +1,17 @@
 package pbyrne84.browsertesting.models
 
-import pbyrne84.browsertesting.models.{Item, User, UserOrder, UserOrderItem}
+import com.github.tminglei.slickpg.*
+import slick.ast.FieldSymbol
 import slick.lifted.ProvenShape
 
-import java.time.{Instant, LocalDateTime, ZoneOffset}
-import com.github.tminglei.slickpg._
-import slick.ast.FieldSymbol
-
 import java.sql.{PreparedStatement, ResultSet}
-import java.time.temporal.ChronoField
+import java.time.Instant
 import java.util.UUID
 
 trait PostgresProfile extends ExPostgresProfile {
-  override val columnTypes = new JdbcTypes
+  override val columnTypes = new CustomJdbcTypes
 
-  class JdbcTypes extends PostgresJdbcTypes {
+  class CustomJdbcTypes extends PostgresJdbcTypes {
     override val uuidJdbcType = new PostgresUUIDJdbcType {
       override def sqlTypeName(sym: Option[FieldSymbol]) = "UUID"
 
@@ -40,26 +37,30 @@ object PostgresProfile extends PostgresProfile
 
 class DbTables(val profile: PostgresProfile) {
 
-  import profile.api._
+  import com.github.tminglei.slickpg.*
+
+  // Just here to keep the import above from going missing as it is not detected as used.
+  private val value: `[_,_)`.type = `[_,_)`
+  import profile.api.*
 
   // implicit val uuidToString = MappedColumnType.base[UUID, String](_.toString, UUID.fromString)
   // Pluralising table names can make Database people cry
   // https://stackoverflow.com/questions/338156/table-naming-dilemma-singular-vs-plural-names to name Sock Drawer or Socks Drawer
   class ItemTable(tag: Tag) extends Table[Item](tag, "item") {
-    def id: Rep[UUID] = column[UUID]("id", O.PrimaryKey)
-    def userId: Rep[UUID] = column[UUID]("user_id")
-    def title: Rep[String] = column[String]("title")
+    def id: Rep[UUID]                 = column[UUID]("id", O.PrimaryKey)
+    def userId: Rep[UUID]             = column[UUID]("user_id")
+    def title: Rep[String]            = column[String]("title")
     def briefDescription: Rep[String] = column[String]("brief_description")
-    def description: Rep[String] = column[String]("description")
-    def price: Rep[Int] = column[Int]("price")
-    def created: Rep[Instant] = column[Instant]("created")
-    def updated: Rep[Instant] = column[Instant]("updated")
+    def description: Rep[String]      = column[String]("description")
+    def price: Rep[Int]               = column[Int]("price")
+    def created: Rep[Instant]         = column[Instant]("created")
+    def updated: Rep[Instant]         = column[Instant]("updated")
     def * = (id, userId, title, briefDescription, description, price, created, updated).mapTo[Item]
   }
 
   class UserTable(tag: Tag) extends Table[User](tag, "user") {
-    def id: Rep[UUID] = column[UUID]("id", O.PrimaryKey)
-    def name: Rep[String] = column[String]("name")
+    def id: Rep[UUID]         = column[UUID]("id", O.PrimaryKey)
+    def name: Rep[String]     = column[String]("name")
     def created: Rep[Instant] = column[Instant]("created")
     def updated: Rep[Instant] = column[Instant]("updated")
 
@@ -67,8 +68,8 @@ class DbTables(val profile: PostgresProfile) {
   }
 
   class UserOrderTable(tag: Tag) extends Table[UserOrder](tag, "user_order") {
-    def id: Rep[UUID] = column[UUID]("id", O.PrimaryKey)
-    def userId: Rep[UUID] = column[UUID]("user_id")
+    def id: Rep[UUID]         = column[UUID]("id", O.PrimaryKey)
+    def userId: Rep[UUID]     = column[UUID]("user_id")
     def created: Rep[Instant] = column[Instant]("created")
 
     override def * : ProvenShape[UserOrder] = (id, userId, created).mapTo[UserOrder]
@@ -76,14 +77,14 @@ class DbTables(val profile: PostgresProfile) {
 
   class UserOrderItemTable(tag: Tag) extends Table[UserOrderItem](tag, "user_order_item") {
     def orderId: Rep[UUID] = column[UUID]("order_id")
-    def itemId: Rep[UUID] = column[UUID]("item_id")
+    def itemId: Rep[UUID]  = column[UUID]("item_id")
 
     override def * : ProvenShape[UserOrderItem] = (orderId, itemId).mapTo[UserOrderItem]
   }
 
-  lazy val itemTable = TableQuery[ItemTable]
-  lazy val userTable = TableQuery[UserTable]
-  lazy val userOrderTable = TableQuery[UserOrderTable]
+  lazy val itemTable          = TableQuery[ItemTable]
+  lazy val userTable          = TableQuery[UserTable]
+  lazy val userOrderTable     = TableQuery[UserOrderTable]
   lazy val userOrderItemTable = TableQuery[UserOrderItemTable]
 
 }

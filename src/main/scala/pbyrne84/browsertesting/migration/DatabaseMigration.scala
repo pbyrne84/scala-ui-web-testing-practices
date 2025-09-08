@@ -1,8 +1,8 @@
 package pbyrne84.browsertesting.migration
 
-import pbyrne84.browsertesting.models.DbConfig
 import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.output.MigrateResult
+import pbyrne84.browsertesting.models.DbConfig
 
 class DatabaseMigration(dbConfig: DbConfig) {
 

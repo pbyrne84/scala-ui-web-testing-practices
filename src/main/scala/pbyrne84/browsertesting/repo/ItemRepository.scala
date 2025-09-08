@@ -1,6 +1,6 @@
 package pbyrne84.browsertesting.repo
 
-import pbyrne84.browsertesting.models.{Item, NewItem, SearchResult, SearchResults, Tables}
+import pbyrne84.browsertesting.models.*
 import slick.jdbc.PostgresProfile
 
 import java.time.{Clock, Instant}
@@ -12,7 +12,7 @@ class ItemRepository(
     clock: Clock,
     uuidProvider: () => UUID
 )(implicit ec: ExecutionContext) {
-  import slick.jdbc.PostgresProfile.api._
+  import slick.jdbc.PostgresProfile.api.*
 
   def create(newItem: NewItem): Future[Either[Throwable, Item]] = {
     val now = Instant.now(clock)

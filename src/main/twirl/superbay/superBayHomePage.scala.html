@@ -1,0 +1,203 @@
+@import pbyrne84.browsertesting.models.SiteTitle
+@()
+
+@superbay.widget.html.headerWidget(SiteTitle.homePage, None)
+
+  <!-- Category quick nav -->
+  <nav class="catnav" aria-label="Top categories">
+    <div class="wrap">
+      <a href="#">Motors</a>
+      <a href="#">Fashion</a>
+      <a href="#">Electronics</a>
+      <a href="#">Collectibles</a>
+      <a href="#">Home & Garden</a>
+      <a href="#">Sporting Goods</a>
+      <a href="#">Toys</a>
+      <a href="#">Business & Industrial</a>
+      <a href="#">Health & Beauty</a>
+      <a href="#">Deals</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="hero-title">Find your next great deal</div>
+        <div class="hero-sub">Shop millions of items across trusted sellers with fast shipping and easy returns.</div>
+        <form class="search-inline" action="SuperBaySearchResults.html" method="GET">
+          <input type="text" name="q" placeholder="Try “wireless earbuds”, “gaming laptop”, “vintage watch”" />
+          <button type="submit">Search</button>
+        </form>
+        <div class="hero-badges">
+          <span class="badge">Free returns</span>
+          <span class="badge">Buyer protection</span>
+          <span class="badge">Top Rated sellers</span>
+        </div>
+      </div>
+      <div class="hero-promo">
+        <div style="font-weight:700;">Daily Deals</div>
+        <div>Save up to 60% on tech, fashion, and more</div>
+        <div class="hero-badges">
+          <span class="badge">Limited time</span>
+          <span class="badge">While supplies last</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular categories -->
+  <section class="section" aria-labelledby="popular-cats">
+    <h2 id="popular-cats">Popular categories <span class="subtle">Handpicked for you</span></h2>
+    <div class="tiles">
+      <a class="tile" href="SuperBaySearchResults.html?q=smartphones">
+        <div class="thumb">IMG</div>
+        <div class="name">Smartphones</div>
+      </a>
+      <a class="tile" href="SuperBaySearchResults.html?q=laptops">
+        <div class="thumb">IMG</div>
+        <div class="name">Laptops</div>
+      </a>
+      <a class="tile" href="SuperBaySearchResults.html?q=headphones">
+        <div class="thumb">IMG</div>
+        <div class="name">Headphones</div>
+      </a>
+      <a class="tile" href="SuperBaySearchResults.html?q=sneakers">
+        <div class="thumb">IMG</div>
+        <div class="name">Sneakers</div>
+      </a>
+      <a class="tile" href="SuperBaySearchResults.html?q=watches">
+        <div class="thumb">IMG</div>
+        <div class="name">Watches</div>
+      </a>
+      <a class="tile" href="SuperBaySearchResults.html?q=home+decor">
+        <div class="thumb">IMG</div>
+        <div class="name">Home Decor</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Promo strip -->
+  <section class="promo" aria-label="Sitewide perks">
+    <div class="wrap">
+      <span class="pill">eBay Money Back Guarantee</span>
+      <span class="pill">Free returns on millions of items</span>
+      <span class="pill">Top Rated Plus sellers</span>
+      <span class="pill">Authenticity Guarantee on select categories</span>
+    </div>
+  </section>
+
+  <!-- Today’s deals -->
+  <section class="section" aria-labelledby="deals">
+    <h2 id="deals">Today’s deals <span class="subtle">Great prices, limited time</span></h2>
+    <div class="grid">
+      <article class="card">
+        <a class="img" href="AdjustableLaptopStand.html">IMG</a>
+        <div class="body">
+          <a class="title" href="AdjustableLaptopStand.html">Adjustable Aluminum Laptop Stand</a>
+          <div class="meta">Free shipping • 100+ sold</div>
+          <div>
+            <span class="price">$24.99</span>
+            <span class="strike">$39.99</span>
+            <span class="discount">-38%</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="AdjustableLaptopStand.html">View</a>
+            <a class="btn primary" href="AdjustableLaptopStand.html">Buy It Now</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="img" href="SuperBaySearchResults.html?q=wireless+earbuds">IMG</a>
+        <div class="body">
+          <a class="title" href="SuperBaySearchResults.html?q=wireless+earbuds">True Wireless Earbuds w/ ANC</a>
+          <div class="meta">Free returns • Top Rated</div>
+          <div>
+            <span class="price">$59.00</span>
+            <span class="strike">$89.00</span>
+            <span class="discount">-34%</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="SuperBaySearchResults.html?q=wireless+earbuds">See options</a>
+            <a class="btn primary" href="SuperBaySearchResults.html?q=wireless+earbuds">Shop now</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="img" href="SuperBaySearchResults.html?q=mechanical+keyboard">IMG</a>
+        <div class="body">
+          <a class="title" href="SuperBaySearchResults.html?q=mechanical+keyboard">RGB Mechanical Keyboard</a>
+          <div class="meta">Ships today • 50+ sold</div>
+          <div>
+            <span class="price">$44.50</span>
+            <span class="strike">$69.99</span>
+            <span class="discount">-36%</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="SuperBaySearchResults.html?q=mechanical+keyboard">View</a>
+            <a class="btn primary" href="SuperBaySearchResults.html?q=mechanical+keyboard">Buy It Now</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="img" href="SuperBaySearchResults.html?q=espresso+machine">IMG</a>
+        <div class="body">
+          <a class="title" href="SuperBaySearchResults.html?q=espresso+machine">Compact Espresso Machine</a>
+          <div class="meta">Free shipping • New</div>
+          <div>
+            <span class="price">$119.99</span>
+            <span class="strike">$159.99</span>
+            <span class="discount">-25%</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="SuperBaySearchResults.html?q=espresso+machine">View</a>
+            <a class="btn primary" href="SuperBaySearchResults.html?q=espresso+machine">Buy It Now</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Recommended for you -->
+  <section class="section" aria-labelledby="recommended">
+    <h2 id="recommended">Recommended for you <span class="subtle">Based on your browsing</span></h2>
+    <div class="grid">
+      <article class="card">
+        <a class="img" href="SuperBaySearchResults.html?q=laptop+stand">IMG</a>
+        <div class="body">
+          <a class="title" href="SuperBaySearchResults.html?q=laptop+stand">Minimalist Steel Laptop Stand</a>
+          <div class="meta">Top Rated • Free Returns</div>
+          <div class="price">$32.00</div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="img" href="SuperBaySearchResults.html?q=usb-c+hubs">IMG</a>
+        <div class="body">
+          <a class="title" href="SuperBaySearchResults.html?q=usb-c+hubs">7-in-1 USB‑C Hub</a>
+          <div class="meta">Ships free • 1-year warranty</div>
+          <div class="price">$21.99</div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="img" href="SuperBaySearchResults.html?q=desk+lamp">IMG</a>
+        <div class="body">
+          <a class="title" href="SuperBaySearchResults.html?q=desk+lamp">Dimmable LED Desk Lamp</a>
+          <div class="meta">Energy saving • Touch control</div>
+          <div class="price">$18.49</div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="img" href="SuperBaySearchResults.html?q=mouse+pad">IMG</a>
+        <div class="body">
+          <a class="title" href="SuperBaySearchResults.html?q=mouse+pad">Extended Desk Mouse Pad</a>
+          <div class="meta">Non-slip • Waterproof</div>
+          <div class="price">$12.95</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+@superbay.widget.html.footerWidget()

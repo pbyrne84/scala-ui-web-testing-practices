@@ -1,9 +1,9 @@
 package pbyrne84.browsertesting
 
+import org.scalatest.concurrent.ScalaFutures
 import pbyrne84.browsertesting.repo.SearchDatabase
 import pbyrne84.browsertesting.routes.SuperBayRoutes
 import pbyrne84.browsertesting.setup.DatabaseSetup
-import org.scalatest.concurrent.ScalaFutures
 
 import java.util.UUID
 import scala.concurrent.{ExecutionContextExecutor, Future}

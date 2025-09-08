@@ -14,7 +14,7 @@ trait TestDatabaseSetup {
   private lazy val config = ConfigFactory.load()
   protected lazy val dbConfig: DbConfig = DbConfig.fromConfig(config)
 
-  import slick.jdbc.PostgresProfile.api._
+  import slick.jdbc.PostgresProfile.api.*
   protected lazy val db: PostgresProfile.backend.JdbcDatabaseDef = Database.forURL(
     dbConfig.url
   )

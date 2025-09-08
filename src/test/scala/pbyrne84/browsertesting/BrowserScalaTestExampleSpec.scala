@@ -1,22 +1,25 @@
 package pbyrne84.browsertesting
 
-import pbyrne84.browsertesting.page.ebay.{EbayHomePage, EbaySearchResultsPage}
 import org.scalatest.freespec.AnyFreeSpecLike
 import org.scalatest.matchers.must.Matchers
+import pbyrne84.browsertesting.page.ebay.{SuperBayHomePage, SuperBaySearchResultsPage}
+import pbyrne84.browsertesting.util.ApiRunner
 
-class BrowserScalaTestExampleSpec extends AnyFreeSpecLike with Matchers {
+class BrowserScalaTestExampleSpec extends AnyFreeSpecLike with Matchers with ApiRunner {
 
   "Ebay" - {
 
     "must load home page correctly" in {
-      EbayHomePage.loadHomepage mustBe a[EbayHomePage]
+      val homepage: SuperBayHomePage = SuperBayHomePage.loadHomepage
+
+      homepage mustBe a[SuperBayHomePage]
     }
 
     "must be able to search" in {
-      val searchResultsPage = EbayHomePage.loadHomepage.search("computer")
+      val searchResultsPage = SuperBayHomePage.loadHomepage.search("computer")
 
       // Don't really need to test this as it is a given
-      searchResultsPage mustBe an[EbaySearchResultsPage]
+      searchResultsPage.getClass mustBe classOf[SuperBaySearchResultsPage]
       searchResultsPage.totalResults must be >= 0
 
       val firstSearchResult = searchResultsPage.getSearchResult(0)

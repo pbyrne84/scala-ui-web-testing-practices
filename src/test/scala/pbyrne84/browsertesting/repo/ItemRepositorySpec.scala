@@ -1,5 +1,7 @@
 package pbyrne84.browsertesting.repo
 
+import org.scalatest.EitherValues.*
+import org.scalatest.OptionValues.*
 import pbyrne84.browsertesting.BaseSpec
 import pbyrne84.browsertesting.models.{Item, NewItem, SearchResult, SearchResults}
 import pbyrne84.browsertesting.repo.ItemRepository
@@ -13,7 +15,7 @@ class ItemRepositorySpec extends BaseSpec {
   private val uuidProvider = mockFunction[UUID]
 
   private lazy val itemRepository = new ItemRepository(db, clock, uuidProvider)
-  private val commonUserId = UUID.randomUUID()
+  private val commonUserId        = UUID.randomUUID()
 
   before {
     reset()
@@ -35,10 +37,10 @@ class ItemRepositorySpec extends BaseSpec {
         .expects()
         .returns(uuid)
 
-      val title = "itemTitle"
+      val title            = "itemTitle"
       val briefDescription = "brief Description"
-      val description = "full description"
-      val price = 22
+      val description      = "full description"
+      val price            = 22
 
       val createdItem =
         itemRepository
@@ -120,7 +122,7 @@ class ItemRepositorySpec extends BaseSpec {
 
     "return true and only delete the valid record when it is found" in {
       val nonDeletedEntry1 = databaseSetup.item.generate(UUID.randomUUID(), commonUserId).futureValue
-      val expectedItem = databaseSetup.item.generate(UUID.randomUUID(), commonUserId).futureValue
+      val expectedItem     = databaseSetup.item.generate(UUID.randomUUID(), commonUserId).futureValue
       val nonDeletedEntry2 = databaseSetup.item.generate(UUID.randomUUID(), commonUserId).futureValue
 
       itemRepository.remove(expectedItem.id).futureValue mustBe true
@@ -157,7 +159,7 @@ class ItemRepositorySpec extends BaseSpec {
       }
 
       "all results when they match across title, brief description, description when the offsets are outside the available range" in {
-        val items = createData
+        val items      = createData
         val searchTerm = "computers"
         itemRepository
           .search(searchTerm = searchTerm, startOffset = 0, limit = 10)
@@ -204,7 +206,7 @@ class ItemRepositorySpec extends BaseSpec {
       }
 
       "all results when they match across title, brief description, description when the offsets are at the boundary of the range" in {
-        val items = createData
+        val items      = createData
         val searchTerm = "computers"
         itemRepository
           .search(searchTerm = searchTerm, startOffset = 0, limit = 3)
@@ -221,7 +223,7 @@ class ItemRepositorySpec extends BaseSpec {
       }
 
       "a result within the range keeping the total found as total possible" in {
-        val items = createData
+        val items      = createData
         val searchTerm = "computers"
         itemRepository
           .search(searchTerm = searchTerm, startOffset = 1, limit = 1)

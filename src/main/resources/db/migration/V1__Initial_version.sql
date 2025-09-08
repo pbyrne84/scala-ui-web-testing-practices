@@ -26,8 +26,7 @@ CREATE TABLE user_order
 (
     id      VARCHAR(36) PRIMARY KEY,
     user_id VARCHAR(36) NULL,
-    created TIMESTAMP   NOT NULL,
-    PRIMARY KEY (id)
+    created TIMESTAMP   NOT NULL
 );
 
 /*Could have a count field but we can have fun doing other stuff (aggregates)*/

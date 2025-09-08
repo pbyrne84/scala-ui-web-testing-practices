@@ -1,0 +1,93 @@
+@import pbyrne84.browsertesting.models.{SearchResults, SiteTitle}
+@(searchResults: SearchResults, maybeSearchTerm: Option[String])
+
+@superbay.widget.html.headerWidget(SiteTitle.searchResults, maybeSearchTerm)
+
+<main class="content">
+    <aside class="filters">
+        <h3>Filters</h3>
+
+        <div class="filter-section">
+            <div class="filter-title">Condition</div>
+            <div class="chips">
+                <div class="chip active">All</div>
+                <div class="chip">New</div>
+                <div class="chip">Open box</div>
+                <div class="chip">Used</div>
+                <div class="chip">For parts</div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-title">Price</div>
+            <div style="display: flex;
+                gap: 8px;">
+                <input type="number" placeholder="Min" style="width: 50%;
+                    padding: 8px;
+                    border: 1px solid var(--border);
+                    border-radius: 6px;">
+                <input type="number" placeholder="Max" style="width: 50%;
+                    padding: 8px;
+                    border: 1px solid var(--border);
+                    border-radius: 6px;">
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-title">Delivery options</div>
+            <label style="display: flex;
+                gap: 8px;
+                align-items: center;
+                font-size: 13px;
+                color: var(--muted);">
+                <input type="checkbox"> Free shipping
+            </label>
+            <label style="display: flex;
+                gap: 8px;
+                align-items: center;
+                font-size: 13px;
+                color: var(--muted);">
+                <input type="checkbox"> Free returns
+            </label>
+            <label style="display: flex;
+                gap: 8px;
+                align-items: center;
+                font-size: 13px;
+                color: var(--muted);">
+                <input type="checkbox"> Local pickup
+            </label>
+        </div>
+    </aside>
+
+    <section>
+        <div class="results-topbar">
+            <div class="results-summary"><strong>@searchResults.totalResults</strong> results for "<strong>@searchResults.searchTerm</strong>
+                " • Showing 1–20</div>
+            <div class="sort">
+                <label for="sort">Sort:</label>
+                <select id="sort">
+                    <option>Best Match</option>
+                    <option>Price + Shipping: lowest first</option>
+                    <option>Price + Shipping: highest first</option>
+                    <option>Time: newly listed</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="results">
+        @for(searchResult <- searchResults.results.zipWithIndex) {
+            @superbay.widget.html.searchResultWidget(searchResult._1)
+        }
+        </div>
+
+        <nav class="pagination" aria-label="Pagination">
+            <a class="page" href="#prev">Prev</a>
+            <a class="page active" href="#1">1</a>
+            <a class="page" href="#2">2</a>
+            <a class="page" href="#3">3</a>
+            <a class="page" href="#next">Next</a>
+        </nav>
+    </section>
+</main>
+
+@superbay.widget.html.footerWidget()

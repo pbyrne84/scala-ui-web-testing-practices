@@ -10,7 +10,8 @@ class SearchResultsGenerator {
         UUID.randomUUID(),
         s"item $index",
         s"description $index",
-        index * 1000
+        index * 1000,
+        ""
       )
     }
   }

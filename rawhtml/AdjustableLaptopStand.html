@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SuperBay – Item View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../src/main/resources/superbay.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="brand"><a href="search-results.html" style="text-decoration:none; color:inherit;">SuperBay</a></div>
+      <form class="search-bar" action="/search" method="GET">
+        <input type="text" name="q" placeholder="Search for anything" />
+        <button type="submit">Search</button>
+      </form>
+      <div style="text-align:right; color:#666; font-size:13px;">Help • Sign in</div>
+    </div>
+  </header>
+  <!-- ... existing code ... -->
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="search-results.html">Back to results</a>
+    <span class="sep">›</span>
+    <a href="#">Computers/Tablets & Networking</a>
+    <span class="sep">›</span>
+    <span>Laptop Stands</span>
+  </nav>
+
+  <main class="container">
+    <!-- Gallery -->
+    <section class="gallery">
+      <div class="main-image">MAIN IMAGE</div>
+      <div class="thumbs">
+        <div class="thumb">1</div>
+        <div class="thumb">2</div>
+        <div class="thumb">3</div>
+        <div class="thumb">4</div>
+        <div class="thumb">5</div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="details">
+      <h1 class="title">Adjustable Aluminum Laptop Stand, Foldable, Heat-Vent Design</h1>
+      <div class="condition">Condition: New • 100 sold</div>
+      <div class="meta-badges">
+        <span class="badge">Top Rated</span>
+        <span class="badge">Free Returns</span>
+        <span class="badge">30-day returns</span>
+      </div>
+      <div class="description">
+        Elevate your laptop with an ergonomic, foldable stand designed to improve airflow and posture.
+        Built from durable aluminum with non-slip silicone pads. Compatible with 10”–16” laptops.
+        Includes a soft travel pouch.
+      </div>
+    </section>
+
+    <!-- Buy box -->
+    <aside class="buybox" aria-label="Purchase options">
+      <div class="price">$24.99</div>
+      <div class="ships">Free shipping • Estimated delivery Thu, Aug 29</div>
+      <div class="qty-row">
+        <label for="qty">Qty</label>
+        <select id="qty" name="qty">
+          <option>1</option><option>2</option><option>3</option><option>4</option>
+        </select>
+      </div>
+      <button class="btn primary">Buy It Now</button>
+      <button class="btn">Add to cart</button>
+      <div class="availability">In Stock • More than 10 available</div>
+      <div class="returns">Free returns • Seller pays for return shipping</div>
+    </aside>
+  </main>
+
+  <section class="below">
+    <div class="panel">
+      <h3>Item specifics</h3>
+      <div class="specs-list">
+        <div>Brand</div><div>Acme</div>
+        <div>Material</div><div>Aluminum alloy</div>
+        <div>Compatible sizes</div><div>10–16 inch</div>
+        <div>Color</div><div>Space Gray</div>
+        <div>Model</div><div>AL-Stand-Pro</div>
+      </div>
+    </div>
+
+    <div class="panel seller">
+      <h3>Seller information</h3>
+      <div class="rating">AcmeStore (12,345) • 98.7% positive feedback</div>
+      <div class="actions">
+        <a class="btn" href="#">Contact seller</a>
+        <a class="btn" href="#">Visit store</a>
+        <a class="btn" href="#">See other items</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2025 SuperBay. Terms • Privacy • Cookies
+  </footer>
+</body>
+</html>

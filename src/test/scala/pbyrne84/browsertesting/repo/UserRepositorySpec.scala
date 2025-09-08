@@ -1,5 +1,7 @@
 package pbyrne84.browsertesting.repo
 
+import org.scalatest.EitherValues.*
+import org.scalatest.OptionValues.*
 import pbyrne84.browsertesting.BaseSpec
 import pbyrne84.browsertesting.models.{NewUser, User}
 import pbyrne84.browsertesting.repo.UserRepository
@@ -10,8 +12,8 @@ import java.util.UUID
 
 class UserRepositorySpec extends BaseSpec {
 
-  private val clock: Clock = mock[Clock]
-  private val uuidProvider = mockFunction[UUID]
+  private val clock: Clock        = mock[Clock]
+  private val uuidProvider        = mockFunction[UUID]
   private lazy val userRepository = new UserRepository(db, clock, uuidProvider)
 
   before {
