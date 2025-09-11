@@ -11,10 +11,12 @@ class EbaySearchWidget(driver: WebDriver) {
   def search(text: String)(implicit position: Position): SuperBaySearchResultsPage = {
 
     driver.findElement(By.name(searchBoxId)).sendKeys(text)
+    driver.findElement(By.name("submitSearch")).submit()
+
     // submit button had loading/temporal issues. Safer to use enter which is what most people use
     // RetryAble.retry(() =>submitButton.submit())
 
-    driver.findElement(By.name(searchBoxId)).sendKeys(Keys.RETURN)
+    // driver.findElement(By.name(searchBoxId)).sendKeys(Keys.RETURN)
 
     val ebaySearchResultsPage = new SuperBaySearchResultsPage(driver)
     ebaySearchResultsPage
