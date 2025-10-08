@@ -20,7 +20,6 @@ class SuperBaySearchResultsPage(protected val driver: WebDriver)(implicit positi
   // #mainContent > div.s-answer-region.s-answer-region-center-top > div > div.clearfix.srp-controls__row-2 > div:nth-child(1) > div.srp-controls__control.srp-controls__count > h1 > span:nth-child(1)
   // *[@id="mainContent"]/div[1]/div/div[1]/div[1]/div[1]/h1/span[1]
   def totalResults(implicit position: Position): Int = {
-
     val searchCountHeadingClass = "results-summary"
     // Selenium throws exceptions when it cannot find element.
     // We could make the message nicer, though still letting the person know about what was the selector
@@ -47,19 +46,6 @@ class SuperBaySearchResultsPage(protected val driver: WebDriver)(implicit positi
     }
 
     SuperBayItemPage(driver)
-  }
-
-  private def switchWindow(originalWindow: String): Unit = {
-    val windowHandles = driver.getWindowHandles.asScala.toList
-
-    windowHandles
-      .find { windowHandle =>
-        !originalWindow.contentEquals(windowHandle)
-      }
-      .map { otherWindowName =>
-        println(s"switching to window $otherWindowName")
-        driver.switchTo.window(otherWindowName)
-      }
   }
 
   private def getSearchResultsElement(expectedIndex: Int)(implicit position: Position) = {
