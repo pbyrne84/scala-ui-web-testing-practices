@@ -4,9 +4,6 @@ import org.openqa.selenium.{By, WebDriver}
 import org.scalactic.source.Position
 import org.scalatest.matchers.should.Matchers
 import pbyrne84.browsertesting.models.SiteTitle
-
-import scala.jdk.CollectionConverters.CollectionHasAsScala
-
 case class SearchResult(title: String, price: String) extends SuperBayPage
 
 class SuperBaySearchResultsPage(protected val driver: WebDriver)(implicit position: Position)
