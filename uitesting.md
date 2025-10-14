@@ -43,7 +43,8 @@ very easily. In fact, it did as Ebay did a redesign of some degree.
 
 This implementation is using Scalatest, and **position: Position** is passed in silently, so if an assertion fails, we get
 the line number the test failed on. We can still navigate down, which is a single path, whereas if it fails within,
-there can be many paths to that call. If a test is failing it makes things more friendly.
+there can be many paths to that call. If a test is failing, then it makes things more friendly to easily being able to 
+navigate to it.
 
 ```scala
 package pbyrne84.browsertesting.page.ebay
