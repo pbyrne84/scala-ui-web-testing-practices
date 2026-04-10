@@ -6,7 +6,7 @@ import slick.jdbc.PostgresProfile
 
 object SearchDatabase {
 
-  lazy val config = ConfigFactory.load()
+  lazy val config             = ConfigFactory.load()
   lazy val dbConfig: DbConfig = DbConfig.fromConfig(config)
 
   import slick.jdbc.PostgresProfile.api.*

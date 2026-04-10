@@ -1,4 +1,4 @@
-package pbyrne84.browsertesting.page.ebay
+package pbyrne84.browsertesting.page.superBay
 
 import org.openqa.selenium.{By, WebDriver}
 import org.scalactic.source.Position
@@ -7,7 +7,7 @@ import pbyrne84.browsertesting.models.SiteTitle
 case class SearchResult(title: String, price: String) extends SuperBayPage
 
 class SuperBaySearchResultsPage(protected val driver: WebDriver)(implicit position: Position)
-    extends SearchWidgetEbayPage
+    extends SearchWidgetSuperBayPage
     with Matchers {
 
   retry(5) {

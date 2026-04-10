@@ -47,7 +47,7 @@ there can be many paths to that call. If a test is failing, then it makes things
 navigate to it.
 
 ```scala
-package pbyrne84.browsertesting.page.ebay
+package pbyrne84.browsertesting.page.superBay
 
 import org.openqa.selenium.{By, WebDriver}
 import org.scalactic.source.Position
@@ -56,7 +56,7 @@ import pbyrne84.browsertesting.models.SiteTitle
 case class SearchResult(title: String, price: String) extends SuperBayPage
 
 class SuperBaySearchResultsPage(protected val driver: WebDriver)(implicit position: Position)
-    extends SearchWidgetEbayPage
+    extends SearchWidgetSuperBayPage
     with Matchers {
 
   retry(5) {

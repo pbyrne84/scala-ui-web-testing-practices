@@ -15,7 +15,7 @@ class UserRepository(
   import slick.jdbc.PostgresProfile.api.*
 
   def create(newUser: NewUser): Future[Either[RuntimeException, User]] = {
-    val now = Instant.now(clock)
+    val now  = Instant.now(clock)
     val uuid = uuidProvider()
 
     val user = User(uuid, newUser.name, now, now)

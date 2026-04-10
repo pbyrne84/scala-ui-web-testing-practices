@@ -11,7 +11,7 @@ trait TestDatabaseSetup {
 
   protected implicit val ec: ExecutionContext
 
-  private lazy val config = ConfigFactory.load()
+  private lazy val config               = ConfigFactory.load()
   protected lazy val dbConfig: DbConfig = DbConfig.fromConfig(config)
 
   import slick.jdbc.PostgresProfile.api.*

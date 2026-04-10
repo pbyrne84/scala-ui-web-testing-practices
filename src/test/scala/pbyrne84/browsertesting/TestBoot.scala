@@ -32,7 +32,7 @@ object TestBoot extends ScalaFutures {
 
     val eventualItems = (1 to 100).map { index =>
       val modulus = index % 5
-      val user = users(modulus)
+      val user    = users(modulus)
 
       val title =
         List(s"tiger $index", s"wolf $index", s"elephant $index", s"lion $index", s"sea lion $index")(modulus)

@@ -1,4 +1,4 @@
-package pbyrne84.browsertesting.page.ebay
+package pbyrne84.browsertesting.page.superBay
 
 import pbyrne84.browsertesting.routes.SiteUrls
 
