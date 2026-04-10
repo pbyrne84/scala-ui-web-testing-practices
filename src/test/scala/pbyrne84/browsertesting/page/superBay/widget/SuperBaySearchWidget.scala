@@ -1,10 +1,10 @@
-package pbyrne84.browsertesting.page.ebay.widget
+package pbyrne84.browsertesting.page.superBay.widget
 
 import org.openqa.selenium.{By, Keys, WebDriver}
 import org.scalactic.source.Position
-import pbyrne84.browsertesting.page.ebay.SuperBaySearchResultsPage
+import pbyrne84.browsertesting.page.superBay.SuperBaySearchResultsPage
 
-class EbaySearchWidget(driver: WebDriver) {
+class SuperBaySearchWidget(driver: WebDriver) {
   private val searchBoxId    = "searchText"
   private val searchButtonId = "gh-btn"
 

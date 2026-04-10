@@ -1,8 +1,8 @@
-package pbyrne84.browsertesting.page.ebay
+package pbyrne84.browsertesting.page.superBay
 
 import org.openqa.selenium.WebDriver
 import org.scalactic.source.Position
-import pbyrne84.browsertesting.page.ebay.widget.EbaySearchWidget
+import pbyrne84.browsertesting.page.superBay.widget.SuperBaySearchWidget
 
 import scala.util.{Failure, Success, Try}
 
@@ -38,12 +38,12 @@ trait SuperBayPage {
   }
 }
 
-trait SearchWidgetEbayPage extends SuperBayPage {
+trait SearchWidgetSuperBayPage extends SuperBayPage {
 
   protected val driver: WebDriver
 
   def search(searchText: String)(implicit position: Position): SuperBaySearchResultsPage = {
-    val ebaySearchResultsPage = new EbaySearchWidget(driver).search(searchText)
+    val ebaySearchResultsPage = new SuperBaySearchWidget(driver).search(searchText)
 
     ebaySearchResultsPage
   }

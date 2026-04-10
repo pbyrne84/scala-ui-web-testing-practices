@@ -1,4 +1,4 @@
-Feature: Ebay
+Feature: SuperBay
   Scenario: must load the homepage
     Given I load the homepage
     Then I must be on the homepage

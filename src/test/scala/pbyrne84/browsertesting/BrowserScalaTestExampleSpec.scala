@@ -2,12 +2,12 @@ package pbyrne84.browsertesting
 
 import org.scalatest.freespec.AnyFreeSpecLike
 import org.scalatest.matchers.must.Matchers
-import pbyrne84.browsertesting.page.ebay.{SuperBayHomePage, SuperBaySearchResultsPage}
+import pbyrne84.browsertesting.page.superBay.{SuperBayHomePage, SuperBaySearchResultsPage}
 import pbyrne84.browsertesting.util.ApiRunner
 
 class BrowserScalaTestExampleSpec extends AnyFreeSpecLike with Matchers with ApiRunner {
 
-  "Ebay" - {
+  "SuperBay" - {
 
     "must load home page correctly" in {
       val homepage: SuperBayHomePage = SuperBayHomePage.loadHomepage

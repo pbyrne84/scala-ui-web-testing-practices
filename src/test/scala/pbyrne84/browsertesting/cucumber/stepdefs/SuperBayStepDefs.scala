@@ -2,14 +2,14 @@ package pbyrne84.browsertesting.cucumber.stepdefs
 
 import pbyrne84.browsertesting.cucumber.BaseStepDef
 import pbyrne84.browsertesting.page.*
-import pbyrne84.browsertesting.page.ebay.*
+import pbyrne84.browsertesting.page.superBay.*
 
 import scala.reflect.ClassTag
 import scala.util.{Failure, Success, Try}
 
-class EbayStepDefs extends BaseStepDef {
+class SuperBayStepDefs extends BaseStepDef {
 
-  implicit class EbayPageOps(currentPage: SuperBayPage) {
+  implicit class SuperPageOps(currentPage: SuperBayPage) {
 
     // Just give a normal scalatest error format instead of a thrown exception format
     def asExpected[A: ClassTag]: A = {
@@ -37,7 +37,7 @@ class EbayStepDefs extends BaseStepDef {
   }
 
   When("""I search for {string}""") { (string: String) =>
-    currentPage = currentPage.asExpected[SearchWidgetEbayPage].search(string)
+    currentPage = currentPage.asExpected[SearchWidgetSuperBayPage].search(string)
   }
 
   Then("""I must be on the homepage""") { () =>

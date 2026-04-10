@@ -15,7 +15,7 @@ class ItemRepository(
   import slick.jdbc.PostgresProfile.api.*
 
   def create(newItem: NewItem): Future[Either[Throwable, Item]] = {
-    val now = Instant.now(clock)
+    val now  = Instant.now(clock)
     val uuid = uuidProvider()
     val item =
       Item(

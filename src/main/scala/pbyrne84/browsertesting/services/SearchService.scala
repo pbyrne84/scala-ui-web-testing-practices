@@ -23,7 +23,7 @@ class SearchService {
   def show(id: UUID): Future[Item] = {
     Future.successful {
       val briefDescription = "Pussy cats are the best!"
-      val description = (1 to 100).map(_ => "Pussy cats are the best!").mkString("\n")
+      val description      = (1 to 100).map(_ => "Pussy cats are the best!").mkString("\n")
 
       Item(
         id = id,

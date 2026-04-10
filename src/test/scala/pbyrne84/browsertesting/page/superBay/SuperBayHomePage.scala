@@ -1,4 +1,4 @@
-package pbyrne84.browsertesting.page.ebay
+package pbyrne84.browsertesting.page.superBay
 
 import org.openqa.selenium.WebDriver
 import org.scalactic.source.Position
@@ -11,19 +11,21 @@ import pbyrne84.browsertesting.routes.SiteUrls
 object SuperBayHomePage {
   private val driver = ChromeDriverInstance.driver
 
-  private val ebayHomePage = new SuperBayHomePage(driver, PageObjectConfig.siteUrls)
+  private val superBayHomePage = new SuperBayHomePage(driver, PageObjectConfig.siteUrls)
 
   // When the jvm stops so will the driver
 
   // By not using static for everything we can create navigation chains so we can navigate a system easily from code
   // One we have page object we should rarely have to look at the html unless it changes/gets redesigned
   def loadHomepage(implicit position: Position): SuperBayHomePage = {
-    ebayHomePage.loadHomepage
+    superBayHomePage.loadHomepage
   }
 
 }
 
-class SuperBayHomePage(protected val driver: WebDriver, siteUrl: SiteUrls) extends Matchers with SearchWidgetEbayPage {
+class SuperBayHomePage(protected val driver: WebDriver, siteUrl: SiteUrls)
+    extends Matchers
+    with SearchWidgetSuperBayPage {
 
   // private def login(userName: String, password: String): AmazonHomePage = {}
   println(siteUrl.fullPath.homePage)
